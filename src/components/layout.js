@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
         <footer style={{ fontFamily: 'gaeguregular' }}>
           © {new Date().getFullYear()},
           {` `}
-          Built by <a href="https://uber5.com">Uber5, South Africa</a>, see the <a href="">Source Code</a>.
+          Built by <a href="https://uber5.com">Uber5, South Africa</a>, see the <a href="https://github.com/Uber5/lockdown-counter">Source Code</a>.
         </footer>
       </div>
     </>
