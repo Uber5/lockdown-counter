@@ -4,6 +4,7 @@ module.exports = {
     description: `Provide information about the lockdown due to covid-19, its progress, and related information.`,
     author: `@chrisoloff`,
   },
+  pathPrefix: '/lockdown-counter',
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
