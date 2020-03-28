@@ -27,7 +27,11 @@ const DailyHistogram = () => {
     return <p>Loading...</p>
   }
   const from = new Date(2020, 2, 4)
-  const countryData = data['South Africa'].map(({ date, ...props }) => ({ day: new Date(date), ...props }))
+  const dateStringToDate = d => {
+    const parts = d.split('-')
+    return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]))
+  }
+  const countryData = data['South Africa'].map(({ date, ...props }) => ({ day: dateStringToDate(date), ...props }))
   .filter(d => d.day > from)
   return <>
     <StackedBar

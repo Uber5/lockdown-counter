@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div style={{ zIndex: -1, position: 'fixed', width: '100%', height: '100%', backgroundImage: `url(${backgroundImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', opacity: 0.3 }} />
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <div
         style={{
           margin: `0 auto`,
