@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import backgroundImage from './Flag_of_South_Africa.svg'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <div style={{ zIndex: -1, position: 'fixed', width: '100%', height: '100%', backgroundImage: `url(${backgroundImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', opacity: 0.3 }} />
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -34,10 +36,10 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
+        <footer style={{ fontFamily: 'gaeguregular' }}>
+          © {new Date().getFullYear()},
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          Built by <a href="https://uber5.com">Uber5, South Africa</a>, see the <a href="">Source Code</a>.
         </footer>
       </div>
     </>
