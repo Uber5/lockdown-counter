@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `South Africa Covid-19 Lockdown Timer`,
-    description: `Provide information about the lockdown due to covid-19, its progress, and related information.`,
+    description: `Countdown until the End of the South African Lockdown, Links and Information on Covid-19`,
     author: `@chrisoloff`,
   },
   pathPrefix: '/lockdown-counter',

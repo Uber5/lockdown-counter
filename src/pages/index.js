@@ -6,7 +6,7 @@ import HomeInfoView from "../components/HomeInfoView"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO />
     <HomeInfoView />
   </Layout>
 )
