@@ -44,6 +44,14 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          property: 'og:url',
+          content: 'https://uber5.github.io/lockdown-counter/'
+        },
+        {
+          property: 'og:image',
+          content: 'https://uber5.github.io/lockdown-counter/icons/icon-512x512.png'
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
