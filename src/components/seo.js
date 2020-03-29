@@ -32,7 +32,7 @@ function SEO({ description, lang, meta, title }) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={title || site.siteMetadata.title}
       titleTemplate={title ? `%s | ${site.siteMetadata.title}` : site.siteMetadata.title}
       meta={[
         {
@@ -75,6 +75,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:summary_large_image`,
+          content: 'https://uber5.github.io/lockdown-counter/icons/icon-512x512.png',
+        },
       ].concat(meta)}
     />
   )
@@ -90,7 +94,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 }
 
 export default SEO
