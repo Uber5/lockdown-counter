@@ -4,7 +4,7 @@ import formatDistanceStrict from 'date-fns/formatDistanceStrict'
 import format from 'date-fns/format'
 
 const start = new Date(2020, 2, 27)
-const end = new Date(start.getTime() + 21 * 24 * 60 * 60 * 1000)
+const end = new Date(start.getTime() + (21 + 14) * 24 * 60 * 60 * 1000)
 const totalMillis = end.getTime() - start.getTime()
 
 const DailyHistogram = () => {
@@ -53,7 +53,7 @@ export default () => {
   const [passedMillis, setPassedMillis] = useState(0)
   const [toGoMillis, setToGoMillis] = useState(0)
   const [timeToGo, setTimeToGo] = useState('')
-  const [secondsDone, setSecondsDone] = useState(0)
+  const [timeDone, setTimeDone] = useState(0)
 
   useEffect(() => {
     const update = () => {
@@ -61,7 +61,7 @@ export default () => {
       setPassedMillis(now.getTime() - start.getTime())
       setToGoMillis(end.getTime() - now.getTime())
       setTimeToGo(formatDistanceStrict(now, end))
-      setSecondsDone(formatDistanceStrict(start, now, { unit: 'second' }))
+      setTimeDone(formatDistanceStrict(start, now, { unit: 'day' }))
     }
     update()
     const i = setInterval(update, 2 * 1000)
@@ -95,7 +95,7 @@ export default () => {
             )}
             <div style={{ padding: 20 }}>
               <div style={{ fontSize: 24, marginBottom: 20 }}>
-                {secondsDone} done, {timeToGo} to go...
+                {timeDone} done, {timeToGo} to go...
               </div>
               <div style={{ fontSize: 24, marginBottom: 20 }}>
                 Stay at home to keep the curve low! 
