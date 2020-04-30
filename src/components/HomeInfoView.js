@@ -26,7 +26,7 @@ const DailyHistogram = () => {
   if (!data) {
     return <p>Loading...</p>
   }
-  const from = new Date(2020, 2, 4)
+  const from = new Date(new Date().getTime() - 30 /* days */ * 24 * 60 * 60 * 1000)
   const dateStringToDate = d => {
     const parts = d.split('-')
     return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]))
@@ -45,7 +45,7 @@ const DailyHistogram = () => {
       fillStyle='cross-hatch'
       colors={['orange', 'orange']}
     />
-    <p>The Curve shows the active cases of covid-19 in South Africa, (confirmed minus deaths minus recovered), see also <a href="https://github.com/pomber/covid19">the data source</a>.</p>
+    <p>The Curve shows the active cases of covid-19 in South Africa in the last 30 days, (confirmed minus deaths minus recovered), see also <a href="https://github.com/pomber/covid19">the data source</a>.</p>
   </>
 }
 
@@ -73,6 +73,35 @@ export default () => {
   const percentDoneLabel = `${percentDone}%`
   const percentTodoLabel = `${100 - percentDone}%`
   
+  if (done) {
+    return <>
+      <section style={{ width: '100%', fontFamily: 'gaeguregular' }}>
+        <div className='done' style={{ paddingTop: 20, paddingBottom: 20 }}>
+          We are done with the first step!
+          But more needs to be done to defeat the virus.
+        </div>
+        <div style={{ width: '100%', fontFamily: 'gaeguregular'}}>
+          <ul>
+            <li>
+              For South African information on the virus, check <a href="https://sacoronavirus.co.za/">the official website</a>.
+            </li>
+            <li>
+              The <a href="https://twitter.com/nwspk/status/1237485109156163585">Tech Handbook</a> has lots of information on tools, projects, misinformation, etc.
+            </li>
+            <li>
+              Other information and news can be found <a href="https://www.google.com/covid19/">on Google</a>.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div style={{ width: '100%', padding: 20, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ textAlign: 'center' }}>
+          <DailyHistogram />
+        </div>
+      </div>
+    </>
+  }
+
   return (
     <>
       <section  className='timer-section' style={{ width: '100%', fontFamily: 'gaeguregular' }}>
